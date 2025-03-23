@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.includes(:author).all
+    @articles = Article.includes(:author).order(created_at: :desc)
     render json: @articles, include: :author
   end
 
